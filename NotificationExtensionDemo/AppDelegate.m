@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) AVSpeechSynthesisVoice *synthesisVoice;
+@property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 @end
 
 @implementation AppDelegate
@@ -18,6 +21,46 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+     [self addOperation:userInfo[@"aps"][@"alert"][@"body"]];
+}
+
+#pragma mark -队列管理推送通知
+- (void)addOperation:(NSString *)title {
+    [[self mainQueue] addOperation:[self customOperation:title]];
+}
+
+- (NSOperationQueue *)mainQueue {
+    return [NSOperationQueue mainQueue];
+}
+
+- (NSOperation *)customOperation:(NSString *)content {
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        AVSpeechUtterance *utterance = nil;
+        @autoreleasepool {
+            utterance = [AVSpeechUtterance speechUtteranceWithString:content];
+            utterance.rate = 0.5;
+        }
+        utterance.voice = self.synthesisVoice;
+        [self.synthesizer speakUtterance:utterance];
+    }];
+    return operation;
+}
+
+- (AVSpeechSynthesisVoice *)synthesisVoice {
+    if (!_synthesisVoice) {
+        _synthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
+    }
+    return _synthesisVoice;
+}
+
+- (AVSpeechSynthesizer *)synthesizer {
+    if (!_synthesizer) {
+        _synthesizer = [[AVSpeechSynthesizer alloc] init];
+    }
+    return _synthesizer;
 }
 
 

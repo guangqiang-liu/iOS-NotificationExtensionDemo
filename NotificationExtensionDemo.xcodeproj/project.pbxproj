@@ -13,7 +13,33 @@
 		9CCDA145214F54D2005914FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CCDA144214F54D2005914FE /* Assets.xcassets */; };
 		9CCDA148214F54D2005914FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCDA146214F54D2005914FE /* LaunchScreen.storyboard */; };
 		9CCDA14B214F54D2005914FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDA14A214F54D2005914FE /* main.m */; };
+		9CCDA159214F5614005914FE /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDA158214F5614005914FE /* NotificationService.m */; };
+		9CCDA15D214F5614005914FE /* NotificationSE.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9CCDA155214F5614005914FE /* NotificationSE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9CCDA15B214F5614005914FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CCDA130214F54D1005914FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CCDA154214F5614005914FE;
+			remoteInfo = NotificationSE;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9CCDA161214F5614005914FE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9CCDA15D214F5614005914FE /* NotificationSE.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9CCDA138214F54D1005914FE /* NotificationExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +52,21 @@
 		9CCDA147214F54D2005914FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CCDA149214F54D2005914FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CCDA14A214F54D2005914FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9CCDA155214F5614005914FE /* NotificationSE.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationSE.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CCDA157214F5614005914FE /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		9CCDA158214F5614005914FE /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		9CCDA15A214F5614005914FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9CCDA135214F54D1005914FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CCDA152214F5614005914FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				9CCDA13A214F54D1005914FE /* NotificationExtensionDemo */,
+				9CCDA156214F5614005914FE /* NotificationSE */,
 				9CCDA139214F54D1005914FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				9CCDA138214F54D1005914FE /* NotificationExtensionDemo.app */,
+				9CCDA155214F5614005914FE /* NotificationSE.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +110,16 @@
 			path = NotificationExtensionDemo;
 			sourceTree = "<group>";
 		};
+		9CCDA156214F5614005914FE /* NotificationSE */ = {
+			isa = PBXGroup;
+			children = (
+				9CCDA157214F5614005914FE /* NotificationService.h */,
+				9CCDA158214F5614005914FE /* NotificationService.m */,
+				9CCDA15A214F5614005914FE /* Info.plist */,
+			);
+			path = NotificationSE;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,15 +130,34 @@
 				9CCDA134214F54D1005914FE /* Sources */,
 				9CCDA135214F54D1005914FE /* Frameworks */,
 				9CCDA136214F54D1005914FE /* Resources */,
+				9CCDA161214F5614005914FE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9CCDA15C214F5614005914FE /* PBXTargetDependency */,
 			);
 			name = NotificationExtensionDemo;
 			productName = NotificationExtensionDemo;
 			productReference = 9CCDA138214F54D1005914FE /* NotificationExtensionDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9CCDA154214F5614005914FE /* NotificationSE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CCDA15E214F5614005914FE /* Build configuration list for PBXNativeTarget "NotificationSE" */;
+			buildPhases = (
+				9CCDA151214F5614005914FE /* Sources */,
+				9CCDA152214F5614005914FE /* Frameworks */,
+				9CCDA153214F5614005914FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationSE;
+			productName = NotificationSE;
+			productReference = 9CCDA155214F5614005914FE /* NotificationSE.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -101,6 +169,14 @@
 				ORGANIZATIONNAME = quangqiang;
 				TargetAttributes = {
 					9CCDA137214F54D1005914FE = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					9CCDA154214F5614005914FE = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -119,6 +195,7 @@
 			projectRoot = "";
 			targets = (
 				9CCDA137214F54D1005914FE /* NotificationExtensionDemo */,
+				9CCDA154214F5614005914FE /* NotificationSE */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +208,13 @@
 				9CCDA148214F54D2005914FE /* LaunchScreen.storyboard in Resources */,
 				9CCDA145214F54D2005914FE /* Assets.xcassets in Resources */,
 				9CCDA143214F54D1005914FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CCDA153214F5614005914FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +231,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CCDA151214F5614005914FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CCDA159214F5614005914FE /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CCDA15C214F5614005914FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CCDA154214F5614005914FE /* NotificationSE */;
+			targetProxy = 9CCDA15B214F5614005914FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9CCDA141214F54D1005914FE /* Main.storyboard */ = {
@@ -311,6 +411,40 @@
 			};
 			name = Release;
 		};
+		9CCDA15F214F5614005914FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NotificationSE/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = quangqiang.NotificationExtensionDemo.NotificationSE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CCDA160214F5614005914FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NotificationSE/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = quangqiang.NotificationExtensionDemo.NotificationSE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -328,6 +462,15 @@
 			buildConfigurations = (
 				9CCDA14F214F54D2005914FE /* Debug */,
 				9CCDA150214F54D2005914FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CCDA15E214F5614005914FE /* Build configuration list for PBXNativeTarget "NotificationSE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CCDA15F214F5614005914FE /* Debug */,
+				9CCDA160214F5614005914FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
